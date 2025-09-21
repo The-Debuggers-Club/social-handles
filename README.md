@@ -2,7 +2,7 @@
 
 > A modern, minimalist webpage showcasing our coding community's social media presence
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=flat-square)](https://your-domain.com)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=flat-square)](https://the-debuggers-club.github.io/social-handles/)
 [![HTML](https://img.shields.io/badge/HTML-5-orange?style=flat-square&logo=html5)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![CSS](https://img.shields.io/badge/CSS-3-blue?style=flat-square&logo=css3)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
@@ -34,7 +34,7 @@ Connect with The Debuggers Club across platforms:
 
 - **LinkedIn**: [The Debuggers Coding Club](https://www.linkedin.com/company/the-debuggers-coding-club/)
 - **Instagram**: [@the.debuggers_bhu](https://www.instagram.com/the.debuggers_bhu/)
-- **GitHub**: [The-Debuggers-Club](https://github.com/The-Debuggers-Club/social-handles)
+- **GitHub**: [The-Debuggers-Club](https://github.com/The-Debuggers-Club)
 
 ## Project Structure
 
