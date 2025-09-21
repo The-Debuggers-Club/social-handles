@@ -71,9 +71,10 @@
             grid-template-areas: 
                 "header ."
                 "social content"
+                "societies ."
                 ". footer";
             grid-template-columns: 1fr 1fr;
-            grid-template-rows: auto 1fr auto;
+            grid-template-rows: auto auto auto auto;
             gap: 3rem;
         }
 
@@ -114,7 +115,13 @@
             justify-self: start;
         }
 
-        .social-title {
+        .societies-section {
+            grid-area: societies;
+            align-self: center;
+            justify-self: end;
+        }
+
+        .section-title {
             font-size: 1.5rem;
             margin-bottom: 2rem;
             font-weight: 300;
@@ -126,11 +133,31 @@
             color: #999;
         }
 
+        .societies-title {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            transform: rotate(-90deg);
+            transform-origin: right bottom;
+            position: absolute;
+            right: -1.5rem;
+            top: -1rem;
+            color: #999;
+        }
+
         .social-links {
             display: flex;
             flex-direction: column;
             gap: 2rem;
             margin-left: 3rem;
+        }
+
+        .societies-links {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-right: 3rem;
+            text-align: right;
         }
 
         .social-link {
@@ -150,6 +177,24 @@
             color: #000;
         }
 
+        .societies-link {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            text-decoration: none;
+            color: #333;
+            font-size: 1.2rem;
+            font-weight: 300;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 1rem 0;
+        }
+
+        .societies-link:hover {
+            transform: translateX(-20px);
+            color: #000;
+        }
+
         .social-link::before {
             content: '';
             width: 0;
@@ -165,6 +210,21 @@
             width: 100%;
         }
 
+        .societies-link::before {
+            content: '';
+            width: 0;
+            height: 2px;
+            background: #333;
+            position: absolute;
+            bottom: 0.5rem;
+            right: 0;
+            transition: width 0.3s ease;
+        }
+
+        .societies-link:hover::before {
+            width: 100%;
+        }
+
         .social-icon {
             width: 24px;
             height: 24px;
@@ -175,6 +235,25 @@
 
         .social-link:hover .social-icon {
             opacity: 1;
+        }
+
+        .societies-icon {
+            width: 24px;
+            height: 24px;
+            margin-left: 1.5rem;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .societies-link:hover .societies-icon {
+            opacity: 1;
+        }
+
+        .society-name {
+            font-size: 0.9rem;
+            color: #888;
+            font-weight: 300;
+            margin-top: 0.2rem;
         }
 
         .content-section {
@@ -207,6 +286,7 @@
                 grid-template-areas: 
                     "header"
                     "social"
+                    "societies"
                     "content"
                     "footer";
                 grid-template-columns: 1fr;
@@ -214,14 +294,19 @@
                 padding: 1rem;
             }
 
-            .social-title {
+            .social-title, .societies-title {
                 position: static;
                 transform: none;
                 margin-bottom: 1rem;
             }
 
-            .social-links {
+            .social-links, .societies-links {
                 margin-left: 0;
+                margin-right: 0;
+            }
+
+            .societies-links {
+                text-align: left;
             }
 
             .content-section {
@@ -270,7 +355,7 @@
         </header>
 
         <section class="social-section">
-            <h2 class="social-title">connect</h2>
+            <h2 class="section-title">connect</h2>
             <div class="social-links">
                 <a href="https://www.linkedin.com/company/the-debuggers-coding-club/" class="social-link" target="_blank">
                     <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -295,6 +380,31 @@
             </div>
         </section>
 
+        <section class="societies-section">
+            <h2 class="societies-title">societies</h2>
+            <div class="societies-links">
+                <a href="https://www.instagram.com/jigyasa_science/" class="societies-link" target="_blank">
+                    <div>
+                        <div>jigyasa</div>
+                        <div class="society-name">Scientific Society</div>
+                    </div>
+                    <svg class="societies-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+                
+                <a href="https://whatsapp.com/channel/0029Vb6J5L4ElagoPD1vje1l" class="societies-link" target="_blank">
+                    <div>
+                        <div>bookspire</div>
+                        <div class="society-name">Book Reading Society</div>
+                    </div>
+                    <svg class="societies-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
+                    </svg>
+                </a>
+            </div>
+        </section>
+
         <section class="content-section">
             <p class="content-text">
                 Join our vibrant community of developers, problem solvers, and code enthusiasts. Together we debug, we learn, we grow.
@@ -302,7 +412,7 @@
         </section>
 
         <footer class="footer">
-            <p>&copy; 2025 the debuggers club</p>
+            <p>&copy; 2024 the debuggers club</p>
         </footer>
     </div>
 </body>
