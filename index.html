@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Debuggers Club</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #ffffff;
+            color: #333;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Abstract background shapes */
+        .bg-shape {
+            position: fixed;
+            border-radius: 50%;
+            opacity: 0.05;
+            z-index: -1;
+            animation: float 20s infinite linear;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background: #333;
+            top: 10%;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            background: #666;
+            bottom: 20%;
+            left: -50px;
+            animation-delay: -7s;
+        }
+
+        .shape-3 {
+            width: 150px;
+            height: 150px;
+            background: #999;
+            top: 60%;
+            right: 10%;
+            animation-delay: -14s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-30px) rotate(120deg); }
+            66% { transform: translateY(15px) rotate(240deg); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: 100vh;
+            display: grid;
+            grid-template-areas: 
+                "header ."
+                "social content"
+                ". footer";
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto 1fr auto;
+            gap: 3rem;
+        }
+
+        .header {
+            grid-area: header;
+            align-self: start;
+            margin-top: 2rem;
+        }
+
+        .club-name {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 100;
+            letter-spacing: -2px;
+            line-height: 0.9;
+            margin-bottom: 1rem;
+            text-transform: lowercase;
+        }
+
+        .club-name .highlight {
+            font-weight: 900;
+            background: linear-gradient(45deg, #333, #666);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 300;
+            transform: rotate(-2deg);
+            margin-left: 2rem;
+        }
+
+        .social-section {
+            grid-area: social;
+            align-self: center;
+            justify-self: start;
+        }
+
+        .social-title {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            transform: rotate(90deg);
+            transform-origin: left bottom;
+            position: absolute;
+            left: -1.5rem;
+            top: -1rem;
+            color: #999;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-left: 3rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            font-size: 1.2rem;
+            font-weight: 300;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 1rem 0;
+        }
+
+        .social-link:hover {
+            transform: translateX(20px);
+            color: #000;
+        }
+
+        .social-link::before {
+            content: '';
+            width: 0;
+            height: 2px;
+            background: #333;
+            position: absolute;
+            bottom: 0.5rem;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .social-link:hover::before {
+            width: 100%;
+        }
+
+        .social-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 1.5rem;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-link:hover .social-icon {
+            opacity: 1;
+        }
+
+        .content-section {
+            grid-area: content;
+            align-self: end;
+            justify-self: end;
+            text-align: right;
+            max-width: 300px;
+        }
+
+        .content-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #666;
+            font-weight: 300;
+        }
+
+        .footer {
+            grid-area: footer;
+            justify-self: end;
+            align-self: end;
+            font-size: 0.9rem;
+            color: #999;
+            font-weight: 300;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-areas: 
+                    "header"
+                    "social"
+                    "content"
+                    "footer";
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 1rem;
+            }
+
+            .social-title {
+                position: static;
+                transform: none;
+                margin-bottom: 1rem;
+            }
+
+            .social-links {
+                margin-left: 0;
+            }
+
+            .content-section {
+                justify-self: start;
+                text-align: left;
+                max-width: none;
+            }
+
+            .footer {
+                justify-self: start;
+            }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #ddd;
+            border-radius: 2px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #bbb;
+        }
+    </style>
+</head>
+<body>
+    <!-- Abstract background shapes -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
+
+    <div class="container">
+        <header class="header">
+            <h1 class="club-name">
+                the <span class="highlight">debuggers</span><br>
+                club
+            </h1>
+            <p class="tagline">// coding community</p>
+        </header>
+
+        <section class="social-section">
+            <h2 class="social-title">connect</h2>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/company/the-debuggers-coding-club/" class="social-link" target="_blank">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    linkedin
+                </a>
+                
+                <a href="https://www.instagram.com/the.debuggers_bhu/" class="social-link" target="_blank">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    instagram
+                </a>
+                
+                <a href="https://github.com/The-Debuggers-Club/social-handles" class="social-link" target="_blank">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    github
+                </a>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <p class="content-text">
+                Join our vibrant community of developers, problem solvers, and code enthusiasts. Together we debug, we learn, we grow.
+            </p>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2025 the debuggers club</p>
+        </footer>
+    </div>
+</body>
+</html>
