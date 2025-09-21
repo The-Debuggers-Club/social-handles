@@ -36,6 +36,13 @@ Connect with The Debuggers Club across platforms:
 - **Instagram**: [@the.debuggers_bhu](https://www.instagram.com/the.debuggers_bhu/)
 - **GitHub**: [The-Debuggers-Club](https://github.com/The-Debuggers-Club)
 
+## Partner Societies
+
+Explore other affiliated academic societies:
+
+- **Jigyasa - Scientific Society**: [@jigyasa_science](https://www.instagram.com/jigyasa_science/) - Promoting scientific research and innovation
+- **Bookspire Book Reading Society**: [WhatsApp Channel](https://whatsapp.com/channel/0029Vb6J5L4ElagoPD1vje1l) - Literary discussions and book recommendations
+
 ## Project Structure
 
 ```
