@@ -197,7 +197,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Have questions or suggestions? Reach out to us:
 
-- **Email**: debuggers.club@example.com
 - **LinkedIn**: [The Debuggers Coding Club](https://www.linkedin.com/company/the-debuggers-coding-club/)
 - **GitHub Issues**: [Report here](https://github.com/The-Debuggers-Club/social-handles/issues)
 
